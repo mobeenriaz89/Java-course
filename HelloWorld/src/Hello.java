@@ -7,9 +7,5 @@ public class Hello {
         System.out.println("Hello mobeen");
         int myFirstNumber = 5;
         System.out.println(myFirstNumber);
-		        System.out.println("i am getting it");
-						        System.out.println("i am getting it again");
-
-
     }
 }
