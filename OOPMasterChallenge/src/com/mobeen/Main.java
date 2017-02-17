@@ -91,10 +91,10 @@ class HealthyBurger extends Hamburger {
 
 
 
-    @Override
+  /*  @Override
     public void addItem(String itemName, float itemPrice) {
         super.addItem(itemName, itemPrice);
-    }
+    }*/
 }
 class deluxeHamburger extends Hamburger {
 
@@ -113,7 +113,7 @@ class deluxeHamburger extends Hamburger {
 }
 
 public class Main {
-
+    static Hamburger burger;
     public static void main(String[] args) {
 
         orderHamburger();
@@ -121,14 +121,14 @@ public class Main {
         orderHealthyBurger();
         System.out.println("\n*******************************************\n");
 
-        orderDeluxeHamburger();
+       orderDeluxeHamburger();
         System.out.println("\n*******************************************\n");
 
 
     }
 
     private static void orderDeluxeHamburger() {
-        Hamburger burger = new deluxeHamburger( "chicken", 200);
+       burger = new deluxeHamburger( "chicken", 200);
         burger.addItem("cheese", 20);
 
 
@@ -146,7 +146,7 @@ public class Main {
     }
 
     private static void orderHealthyBurger() {
-        Hamburger burger = new HealthyBurger("chicken", 200);
+         burger = new HealthyBurger("chicken", 200);
         burger.addItem("cheese", 20);
         burger.addItem("tomato", 20);
         burger.addItem("lettuce", 20);
@@ -169,7 +169,7 @@ public class Main {
     }
 
     private static void orderHamburger() {
-        Hamburger burger = new Hamburger("Hamburger", "wheat","beef", 200);
+         burger = new Hamburger("Hamburger", "wheat","beef", 200);
         burger.addItem("cheese", 20);
         burger.addItem("tomato", 20);
         burger.addItem("lettuce", 20);
