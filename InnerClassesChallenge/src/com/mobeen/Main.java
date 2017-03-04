@@ -8,7 +8,7 @@ public class Main {
     static ArrayList<Album> AlbumsList = new ArrayList<>();
 
     public static void main(String[] args) {
-        LinkedList<String> myPlaylist = new LinkedList<>();
+        LinkedList<Song> myPlaylist = new LinkedList<Song>();
         //createDummyAlbums();
         //addDummySongsToAlbums();
         AlbumsList.add(new Album("ummah"));
@@ -31,8 +31,8 @@ public class Main {
 
     }
 
-    private static void printMenu(LinkedList myPlaylist) {
-        ListIterator stringlistIterator = myPlaylist.listIterator();
+    private static void printMenu(LinkedList<Song> myPlaylist) {
+        ListIterator<Song> stringlistIterator = myPlaylist.listIterator();
         System.out.println("Now playing:" + stringlistIterator.next());
         boolean directionForward = true;
 
@@ -150,42 +150,23 @@ public class Main {
     }
 
 
-    private static void printplaylist(LinkedList<String> myPlaylist) {
+    private static void printplaylist(LinkedList<Song> myPlaylist) {
         Iterator i = myPlaylist.iterator();
         while(i.hasNext()){
-            System.out.println(i.next());
+            System.out.println(i.next().toString());
         }
     }
 
     private static boolean addSongToPlaylist(LinkedList myplaylist,String songName) {
-        for(int i =0; i<AlbumsList.size();i++){
-            for(int j=0; j<AlbumsList.get(i).getSongsList().size();j++){
-                if(AlbumsList.get(i).findSongInAlbum(songName)>=0){
-                    ListIterator<String> stringListIterator = myplaylist.listIterator();
-                    while(stringListIterator.hasNext()) {
-                        int comparison = stringListIterator.next().compareTo(songName);
-                        if (comparison == 0) {
-                            System.out.println("This song already exists in the playlist");
-                            return false;
-                        } else if (comparison > 0) {
-                            stringListIterator.previous();
-                            stringListIterator.add(songName);
-                            return true;
-                        } else if (comparison < 0) {
-                            //move to next song
-                        }
-                    }
-                    stringListIterator.add(songName);
-
-                    return true;
-
-                }
-            }
+        for(Album checkedAlbum: AlbumsList){
+            return checkedAlbum.addToPlaylist(songName,myplaylist);
         }
+
+
         return false;
     }
 
-    private static void showAllSongsinAllAlbums() {
+  /*  private static void showAllSongsinAllAlbums() {
         for(int i=0;i<AlbumsList.size();i++){
             System.out.println("album name:" + AlbumsList.get(i).getAlbumName());
             int size = AlbumsList.get(i).getSongsList().size();
@@ -195,7 +176,7 @@ public class Main {
         }
 
 
-    }
+    }*/
 
     private static void addDummySongsToAlbums() {
         for(int i=0; i<AlbumsList.size(); i++){

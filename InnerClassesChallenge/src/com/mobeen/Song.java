@@ -21,6 +21,11 @@ public class Song {
         return duration;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "Song{" +
+                "songTitle='" + songTitle + '\'' +
+                ", duration=" + duration +
+                '}';
+    }
 }
